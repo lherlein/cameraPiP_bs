@@ -1,14 +1,25 @@
 diClass = require('@brightsign/deviceinfo');
 
 function main() {
-	//	console.log("main!  we have local liftoff!");
-	console.log("main!  we have remote liftoff!");
-	getModel();
+	// console.log("main!  we have local liftoff!");
+	// console.log("main!  we have remote liftoff!");
+	let textDisplay = getModel();
+	displayText(textDisplay);
+
+
 }
 
 function getModel() {
 	di = new diClass();
-	console.log("model: " + di.model);
+	textDisplay = "model: " + di.model;
+
+	return textDisplay;
 }
 
-window.main = main;
+function displayText(textDisplay) {
+	var centeredTextElement = document.getElementById("IP");
+
+	// Set the text to the model
+
+	centeredTextElement.textContent = textDisplay;
+}
